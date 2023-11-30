@@ -21,6 +21,6 @@
     echo "<p>{$connection_status}</p>";
 ?>
     <p>Not registered yet? <a href="register.html">Register here</a>.</p>
-    <p>Already have an account? <a href="pages/login.html">Login here</a>.</p>
+    <p>Already have an account? <a href="pages/login.php">Login here</a>.</p>
 </body>
 </html>

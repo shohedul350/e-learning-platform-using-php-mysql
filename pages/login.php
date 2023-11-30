@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Login Page</title>
     <link rel="stylesheet" type="text/css" href="slide navbar style.css">
@@ -9,7 +8,6 @@
     <link rel="stylesheet" href="../css/style.css">
     <!-- <link rel="stylesheet" href="../css/style.css"> -->
 </head>
-
 <body>
     <!-- ===== main menu part start =====  -->
     <header id="main_menu">
@@ -40,6 +38,9 @@
             </div>
         </div>
     </header>
+
+
+
     <!-- ----- main menu part end ----- -->
     <!-- ===== login part start =====  -->
     <section id="login">
@@ -47,11 +48,11 @@
             <input type="checkbox" id="chk" aria-hidden="true">
 
             <div class="signup">
-                <form>
-                    <label for="chk" aria-hidden="true">Sign up</label>
-                    <input type="text" name="txt" placeholder="User name" required="">
-                    <input type="email" name="email" placeholder="Email" required="">
-                    <input type="password" name="pswd" placeholder="Password" required="">
+                <form method="post" action="../pages/login_process.php">
+                    <label for="chk" aria-hidden="true">Sign In</label>
+                    <!-- <input type="text" name="txt" placeholder="User name" required=""> -->
+                    <input type="email" value="shohedul350@gmail.com" name="email" placeholder="Email" required="">
+                    <input type="password" value="123456" name="password" placeholder="Password" required="">
                     <button>Sign up</button>
                 </form>
             </div>
