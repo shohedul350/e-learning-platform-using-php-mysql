@@ -9,6 +9,6 @@
 </head>
 <body>
     <h1>Welcome to the Dashboard, <?php echo $_SESSION['login_user']; ?></h1>
-    <a href="logout.php">Logout</a>
+    <a href="/elearning/index.php">Logout</a>
 </body>
 </html>

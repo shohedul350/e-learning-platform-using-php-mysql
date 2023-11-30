@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }else {
             array_push($errors, "Wrong email/password combination");
             $_SESSION['errors'] = $errors; 
-            header('location: ../pages/error_page.php');
+            header('location: ../pages/login.php');
         }
     }
 }
