@@ -53,16 +53,17 @@
                     <!-- <input type="text" name="txt" placeholder="User name" required=""> -->
                     <input type="email" value="shohedul350@gmail.com" name="email" placeholder="Email" required="">
                     <input type="password" value="123456" name="password" placeholder="Password" required="">
-                    <button>Sign up</button>
+                    <button>Sign In</button>
                 </form>
             </div>
 
             <div class="login">
                 <form>
-                    <label for="chk" aria-hidden="true">Login</label>
+                    <label for="chk" aria-hidden="true">Sign up</label>
+                    <input type="text" name="username" placeholder="Email" required="">
                     <input type="email" name="email" placeholder="Email" required="">
-                    <input type="password" name="pswd" placeholder="Password" required="">
-                    <button>Login</button>
+                    <input type="password" name="password" placeholder="Password" required="">
+                    <button>Sign up</button>
                 </form>
             </div>
         </div>
