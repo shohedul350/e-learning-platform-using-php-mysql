@@ -1,4 +1,410 @@
-body {
+/* ===== fonts link css part start  */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* ----- fonts link css part end ----- */
+/* ===== variables css part start  */
+:root {
+  --poppins: 'Poppins', sans-serif;
+  --inter: 'Inter', sans-serif;
+  --brand_color: #573b8a;
+  --secondary_color: #ff4d4d
+}
+
+/* ----- variables css part end ----- */
+/* ===== common css part start  */
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+/* ----- common css part end ----- */
+/* ===== main menu link css part start  */
+#main_menu {
+  width: 100%;
+  position: absolute;
+}
+
+.main_menu {
+  height: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo_part a h2 {
+  font-size: 25px;
+  font-weight: 700;
+  font-family: var(--poppins);
+  color: var(--brand_color);
+}
+
+.nav_item_ ul {
+  display: flex;
+  gap: 22px;
+}
+
+.nav_item_ ul li a {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: var(--poppins);
+  color: #000;
+  position: relative;
+}
+
+.nav_item_ ul li a::after {
+  content: '';
+  width: 0%;
+  height: 2px;
+  background: var(--brand_color);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transition: all linear .3s;
+}
+
+.nav_item_ ul li a:hover::after {
+  width: 100%;
+}
+
+.login_part ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+}
+
+.login_part ul li a {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: var(--poppins);
+  color: #000;
+}
+
+.login_part ul .signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 50px;
+  border-radius: 40px;
+  color: #fff;
+  background: var(--brand_color);
+}
+
+/* ----- main menu css part end ----- */
+/* ===== hero css part start  */
+#hero_part {
+  background: url(../images/hero_bg.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 150px 0 100px 0;
+}
+
+.hero_row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 50px;
+  align-items: center;
+}
+
+.hero_title h3 {
+  font-size: 18px;
+  font-weight: 400;
+  font-family: var(--inter);
+  letter-spacing: 1px;
+  color: var(--secondary_color);
+}
+
+.hero_title h1 {
+  width: 380px;
+  font-size: 40px;
+  font-weight: 600;
+  font-family: var(--poppins);
+  color: #333;
+  line-height: 45px;
+  margin: 10px 0;
+}
+
+.hero_title h1 span {
+  color: var(--brand_color);
+}
+
+.hero_title p {
+  width: 400px;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: var(--inter);
+  color: #333;
+  line-height: 30px;
+  margin-bottom: 30px;
+}
+
+.hero_buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+}
+
+.signup_button a {
+  border: none;
+  color: #fff;
+  background-image: linear-gradient(30deg, #573b8a, #c74cf7);
+  border-radius: 30px;
+  background-size: 100% auto;
+  font-family: var(--poppins);
+  font-size: 17px;
+  font-weight: 500;
+  padding: 14px 30px;
+  background-position: right center;
+  background-size: 200% auto;
+  -webkit-animation: pulse 2s infinite;
+  animation: pulse512 1.5s infinite;
+}
+
+@keyframes pulse512 {
+  0% {
+    box-shadow: 0 0 0 0 #573b8a;
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+  }
+}
+
+.play_button a {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: var(--secondary_color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+
+}
+
+.hero_image_part {
+  width: 500px;
+}
+
+/* ----- hero css part end ----- */
+/* ===== awesome css part start  */
+#awesome {
+  padding: 50px 0;
+}
+
+.awesome_head {
+  text-align: center;
+}
+
+.awesome_head h3 {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: var(--poppins);
+  color: var(--secondary_color);
+}
+
+.awesome_head h1 {
+  font-size: 32px;
+  font-weight: 600;
+  font-family: var(--poppins);
+  color: #333;
+  margin: 5px 0;
+}
+
+.awesome_head p {
+  width: 500px;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: var(--inter);
+  color: #333;
+  margin: 0 auto;
+}
+
+.awesome_cards {
+  margin-top: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.awesomeCard_item {
+  width: 350px;
+  padding: 40px 25px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  text-align: center;
+}
+
+.awesomeCard_icon img {
+  width: 100px;
+}
+
+.awesomeCard_text h2 {
+  font-size: 18px;
+  font-weight: 600;
+  font-family: var(--poppins);
+  color: #333;
+  margin: 30px 0 10px 0;
+}
+
+.awesomeCard_text p {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: var(--inter);
+  color: #333;
+  line-height: 20px;
+  margin-bottom: 20px;
+}
+
+.awesomeCard_button a {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: var(--poppins);
+  color: var(--brand_color);
+  transition: all linear .3s;
+}
+
+.awesomeCard_button a:hover {
+  color: var(--secondary_color);
+}
+.footer{
+  padding: 50px 0;
+
+}
+
+/* ===== footer css part start  */
+#footer {
+  padding-top: 100px;
+}
+
+.footer_row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer_column {
+  width: 350px;
+}
+
+.footer_paragraph p {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: var(--inter);
+  color: #333;
+  line-height: 24px;
+  margin: 16px 0;
+}
+
+.footer_icons ul {
+  display: flex;
+  gap: 25px;
+}
+
+.footer_icons ul li a {
+  font-size: 25px;
+  color: var(--secondary_color);
+  transition: all linear .3s;
+}
+
+.footer_icons ul li a:hover {
+  color: var(--brand_color);
+}
+
+.importantLinks_head h2 {
+  font-size: 18px;
+  font-weight: 600;
+  font-family: var(--poppins);
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.importantLinks_items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 80px;
+}
+
+.importantLinks_item ul {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.importantLinks_item ul li a {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: var(--inter);
+  color: #333;
+}
+
+.footer_image {
+  width: 350px;
+}
+
+.copyright_row {
+  margin-top: 20px;
+  padding: 20PX 0;
+  background: var(--brand_color);
+}
+
+.copyright_row p {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: var(--poppins);
+  color: #fff;
+}
+
+/* ----- footer css part end ----- */
+
+/* body {
   font-family: Arial, sans-serif;
   text-align: center;
   margin: 20px;
@@ -27,4 +433,4 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-}
+} */

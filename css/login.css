@@ -1,0 +1,234 @@
+/* ===== fonts link css part start  */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* ----- fonts link css part end ----- */
+/* ===== variables css part start  */
+:root {
+    --poppins: 'Poppins', sans-serif;
+    --inter: 'Inter', sans-serif;
+    --brand_color: #573b8a;
+    --secondary_color: #ff4d4d
+}
+
+/* ----- variables css part end ----- */
+/* ===== common css part start  */
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/* ----- common css part end ----- */
+/* ===== main menu link css part start  */
+#main_menu {
+    width: 100%;
+    position: fixed;
+    background: #fff;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+    z-index: 999;
+}
+
+.main_menu {
+    height: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo_part a h2 {
+    font-size: 25px;
+    font-weight: 700;
+    font-family: var(--poppins);
+    color: var(--brand_color);
+}
+
+.nav_item_ ul {
+    display: flex;
+    gap: 22px;
+}
+
+.nav_item_ ul li a {
+    font-size: 18px;
+    font-weight: 500;
+    font-family: var(--poppins);
+    color: #000;
+    position: relative;
+}
+
+.nav_item_ ul li a::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: var(--brand_color);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    transition: all linear .3s;
+}
+
+.nav_item_ ul li a:hover::after {
+    width: 100%;
+}
+
+.login_part ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+}
+
+.login_part ul li a {
+    font-size: 18px;
+    font-weight: 500;
+    font-family: var(--poppins);
+    color: #000;
+}
+
+.login_part ul .signup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+    border-radius: 40px;
+    color: #fff;
+    background: var(--brand_color);
+}
+
+/* ----- main menu css part end ----- */
+/* ===== login css part start  */
+#login {
+    padding: 140px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.main {
+    width: 350px;
+    height: 500px;
+    background: #fff;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+
+#chk {
+    display: none;
+}
+
+.signup {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+label {
+    color: #573b8a;
+    font-size: 2.3em;
+    font-family: var(--poppins);
+    justify-content: center;
+    display: flex;
+    margin: 60px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .5s ease-in-out;
+}
+
+input {
+    width: 60%;
+    height: 34px;
+    background: #e0dede;
+    justify-content: center;
+    display: flex;
+    margin: 20px auto;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+button {
+    width: 60%;
+    height: 40px;
+    margin: 10px auto;
+    justify-content: center;
+    display: block;
+    color: #fff;
+    background: var(--brand_color);
+    font-size: 1em;
+    font-weight: bold;
+    font-family: var(--poppins);
+    margin-top: 20px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    transition: .2s ease-in;
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--brand_color);
+}
+
+.login {
+    height: 460px;
+    background: #eee;
+    border-radius: 60% / 10%;
+    transform: translateY(-180px);
+    transition: .8s ease-in-out;
+}
+
+.login label {
+    color: var(--brand_color);
+    transform: scale(.6);
+}
+
+#chk:checked~.login {
+    transform: translateY(-500px);
+}
+
+#chk:checked~.login label {
+    transform: scale(1);
+}
+
+#chk:checked~.signup label {
+    transform: scale(.6);
+}
+
+/* -----login css part end ----- */
