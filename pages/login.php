@@ -50,19 +50,18 @@
             <div class="signup">
                 <form method="post" action="../pages/login_process.php">
                     <label for="chk" aria-hidden="true">Sign In</label>
-                    <!-- <input type="text" name="txt" placeholder="User name" required=""> -->
                     <input type="email" value="shohedul350@gmail.com" name="email" placeholder="Email" required="">
-                    <input type="password" value="123456" name="password" placeholder="Password" required="">
+                    <input type="password" value="12345" name="password" placeholder="Password" required="">
                     <button>Sign In</button>
                 </form>
             </div>
 
             <div class="login">
-                <form>
+                <form method="post" action="../pages/signup_process.php">
                     <label for="chk" aria-hidden="true">Sign up</label>
-                    <input type="text" name="username" placeholder="Email" required="">
-                    <input type="email" name="email" placeholder="Email" required="">
-                    <input type="password" name="password" placeholder="Password" required="">
+                    <input type="text" name="name" placeholder="Name" required="" value="emon">
+                    <input type="email" name="email" placeholder="Email" required="" value="emon@gmail.com">
+                    <input type="password" name="password" placeholder="Password" required="" value="12345">
                     <button>Sign up</button>
                 </form>
             </div>
