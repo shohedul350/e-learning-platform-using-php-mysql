@@ -3,9 +3,46 @@ sudo ./manager-linux-x64.run
 
 table create query
 
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `username` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    role ENUM('user', 'admin') DEFAULT 'user' NOT NULL
+);
+
+CREATE TABLE categories (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE courses (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    popular BOOLEAN DEFAULT false,
+    isHome BOOLEAN DEFAULT false,
+    category_id INT,
+    FOREIGN KEY (category_id) REFERENCES categories(id),
+    instructor_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    release_date DATE DEFAULT CURRENT_DATE
+);
+
+
+INSERT INTO users (name, email, password, role) VALUES
+('John Doe', 'admin@gmail.com', '123456', 'admin'),
+('Shohedul', 'shohedul@gmail.com', '123456', 'user'),
+('Bob Johnson', 'bob.johnson@gmail.com', '123456', 'user');
+
+INSERT INTO categories (name) VALUES
+('Programming'),
+('Design'),
+('Data Science');
+
+INSERT INTO courses (title, description, popular, isHome, category_id, instructor_id, user_id, release_date) VALUES
+('Introduction to Python', 'Learn the basics of Python programming language.', true, true, 1, 1, 2, '2023-01-01'),
+('Web Design Fundamentals', 'Explore the principles of web design.', false, false, 2, 2, 1, '2023-02-15'),
+('Data Analysis with Python', 'Analyze data using Python and pandas library.', true, false, 3, 3, 3, '2023-03-10');

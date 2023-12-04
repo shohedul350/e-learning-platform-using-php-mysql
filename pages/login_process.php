@@ -1,11 +1,10 @@
 <?php
-    include("../database/db_connection.php");
-    session_start();
+include("../database/db_connection.php");
+session_start();
 $email = "";
 $email    = "";
 $errors = array(); 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
- 
     $email = mysqli_real_escape_string($conn , $_POST['email']);
     $password = mysqli_real_escape_string($conn , $_POST['password']);
     if (empty($email)) {
@@ -18,14 +17,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           $query = "SELECT * FROM users WHERE email='$email' AND password='$password'";
         $results = mysqli_query($conn, $query);
         if (mysqli_num_rows($results) == 1) {
-            $_SESSION['email'] = $email;
+        $row = mysqli_fetch_assoc($results);
+            $_SESSION['name'] = $row['name'];
+            $_SESSION['email'] = $row['email'];
             $_SESSION['success'] = "You are now logged in";
-            header('location: ../pages/dashboard.php');
-        }else {
-            array_push($errors, "Wrong email/password combination");
-            $_SESSION['errors'] = $errors; 
-            header('location: ../pages/login.php');
+            $_SESSION['role'] = $row['role'];
+            if ($row['role'] === 'user') {
+                header('location: ../pages/user_dashboard.php');
+            } elseif ($row['role'] === 'admin') {
+                header('location: ../pages/admin/index.php');
+            }
         }
+        echo "Error:". $sql . "<br>". $conn->error;
     }
 }
 ?>

@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $result = $conn->query($sql);
   if ($result == TRUE) {
     echo "New record created successfully.";
-    header('location: ../pages/dashboard.php');
+    header('location: ../pages/user_dashboard.php');
   }else{
     echo "Error:". $sql . "<br>". $conn->error;
   }

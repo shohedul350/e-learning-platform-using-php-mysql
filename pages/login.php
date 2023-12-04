@@ -50,8 +50,8 @@
             <div class="signup">
                 <form method="post" action="../pages/login_process.php">
                     <label for="chk" aria-hidden="true">Sign In</label>
-                    <input type="email" value="shohedul350@gmail.com" name="email" placeholder="Email" required="">
-                    <input type="password" value="12345" name="password" placeholder="Password" required="">
+                    <input type="email" value="admin@gmail.com" name="email" placeholder="Email" required="">
+                    <input type="password" value="123456" name="password" placeholder="Password" required="">
                     <button>Sign In</button>
                 </form>
             </div>

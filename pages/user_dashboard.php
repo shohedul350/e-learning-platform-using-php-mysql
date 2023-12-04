@@ -1,4 +1,13 @@
 
+<?php
+session_start(); 
+if (isset($_SESSION['name'])) {
+    $name = $_SESSION['name'];
+    echo "Hello, $name!";
+} else {
+    echo "User name not found in the session.";
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +17,12 @@
     <title>Dashboard</title>
 </head>
 <body>
-    <h1>Welcome to the Dashboard, <?php echo $_SESSION['login_user']; ?></h1>
+    <h1>Welcome to the User Dashboard</h1>
+ 
     <a href="/elearning/index.php">Logout</a>
+
 </body>
+
+
+
 </html>
