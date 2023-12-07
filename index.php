@@ -48,7 +48,7 @@
                         <h3>Learn with our expert's</h3>
                         <h1>Start Learning
                             <span>Web Design</span> in
-                            our website.
+                            E-Learning Platform.
                         </h1>
                         <p>Elevate Education with E-Learning platform. Your Gateway to Interactive Learning Excellence!</p>
                     </div>
@@ -60,7 +60,7 @@
                     </div>
                 </div>
                 <div class="hero_image_part">
-                    <img src="../images/hero_image.svg" alt="hero image">
+                    <img src="https://ethemestudio.com/demo/larna/images/feature/home4-feature-img1.png" alt="hero image">
                 </div>
             </div>
         </div>
@@ -136,7 +136,7 @@
                         <img src="https://ethemestudio.com/demo/larna/images/course/popular-course-img1.jpg" alt="card icon">
                     </div>
                      <div class="course_text">
-                        <h2>Design for the web with Abobe Illustrator and photoshop</h2>
+                        <h2>Design for the web with Abobe HTML & CSS</h2>
                         <div class="mentor">
                             <p>By <span class="mentor_name">Rakibul Islam</span> </p>
                         </div>
@@ -154,7 +154,7 @@
                         <img src="https://ethemestudio.com/demo/larna/images/course/popular-course-img2.jpg" alt="card icon">
                     </div>
                     <div class="course_text">
-                        <h2>Design for the web with Abobe Illustrator and photoshop</h2>
+                        <h2>Design for the web with React JS & Node JS</h2>
                         <div class="mentor">
                             <p>By <span class="mentor_name">Shohedul Islam</span> </p>
                         </div>
@@ -191,6 +191,30 @@
     </section>
     <!-- ----- courses part end ----- -->
 
+    <!-- ----- award part start ----- -->
+    <section id="hero_part">
+        <div class="">
+            <div class="hero_row">
+                 <div class="hero_image_part">
+                    <img src="https://ethemestudio.com/demo/larna/images/feature/hm4-feature-img2.png" alt="hero image">
+                </div>
+                <div class="hero_text_part">
+                    <div class="hero_title">
+                        <h1>
+                            <span>Award winning </span> course management.
+                        </h1>
+                        <p>Our all courses are world class quality. anyone can learn in anywhere in the world. all of courses is easy to describe and easy to understand</p>
+                    </div>
+                    <div class="hero_buttons">
+                        <div class="signup_button"><a href="pages/login.php">Sign Up</a></div>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </section>
+    <!-- ----- award part end ----- -->
+    
 <!-- =====footer part start =====  -->
 <footer id="footer">
     <div class="container">
@@ -243,14 +267,14 @@
             </div>
             <div class="footer_column">
                 <div class="footer_image">
-                    <img src="../images/footer_image.svg" alt="footer image">
+                    <img src="https://ethemestudio.com/demo/larna/images/footer/home4-footer-img.png" alt="footer image">
                 </div>
             </div>
         </div>
 
     </div>
     <div class="copyright_row">
-        <p>All rights reserved eThemeStudio &copy; 2023</p>
+        <p>All rights reserved rakibul and Shohedul &copy; 2023</p>
     </div>
 </footer>
 <!-- ----- footer part end ----- -->

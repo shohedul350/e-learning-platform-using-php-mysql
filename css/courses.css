@@ -221,7 +221,7 @@ th {
   font-family: var(--poppins);
   color: var(--brand_color);
   transition: all linear .3s;
-  text-align: left;
+  
 }
 
 .course_button a:hover {
