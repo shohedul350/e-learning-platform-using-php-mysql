@@ -21,7 +21,7 @@
                     <ul>
                         <li><a href="#">Home</a></li>
                         <li><a href="#">About</a></li>
-                        <li><a href="#">Course</a></li>
+                        <li><a href="../e-learning/pages/courses.php">Course</a></li>
                         <li><a href="#">Pages</a></li>
                         <li><a href="#">News</a></li>
                         <li><a href="#">Contact</a></li>
@@ -79,7 +79,7 @@
             <div class="awesome_cards">
                 <div class="awesomeCard_item">
                     <div class="awesomeCard_icon">
-                        <img src="../images/awesomeCard_icon1.png" alt="card icon">
+                        <img src="https://ethemestudio.com/demo/larna/images/icon/hm4-intro-icon1.png" alt="card icon">
                     </div>
                     <div class="awesomeCard_text">
                         <h2>Learn Everything</h2>
@@ -91,7 +91,7 @@
                 </div>
                 <div class="awesomeCard_item">
                     <div class="awesomeCard_icon">
-                        <img src="../images/awesomeCard_icon2.png" alt="card icon">
+                        <img src="https://ethemestudio.com/demo/larna/images/icon/hm4-intro-icon2.png" alt="card icon">
                     </div>
                     <div class="awesomeCard_text">
                         <h2>Top Quality Education</h2>
@@ -103,7 +103,8 @@
                 </div>
                 <div class="awesomeCard_item">
                     <div class="awesomeCard_icon">
-                        <img src="../images/awesomeCard_icon3.png" alt="card icon">
+                        <!-- <img src="../images/awesomeCard_icon3.png" alt="card icon"> -->
+                        <img src="https://ethemestudio.com/demo/larna/images/icon/hm4-intro-icon3.png" alt="card icon">
                     </div>
                     <div class="awesomeCard_text">
                         <h2>Get Certified</h2>
@@ -118,6 +119,77 @@
     </section>
     <!-- ----- awesome part end ----- -->
 
+    <!-- ----- courses part start ----- -->
+    <section id="courses">
+        <div class="container">
+            <div class="course_head">
+                <h1>Check Our Recent Courses</h1>
+            </div>
+
+            <div class="course_button" >
+               <a href="../e-learning/pages/courses.php">View All Courses</a>
+            </div>
+
+            <div class="course_cards">
+                <div class="course_item">
+                    <div class="course_icon">
+                        <img src="https://ethemestudio.com/demo/larna/images/course/popular-course-img1.jpg" alt="card icon">
+                    </div>
+                     <div class="course_text">
+                        <h2>Design for the web with Abobe Illustrator and photoshop</h2>
+                        <div class="mentor">
+                            <p>By <span class="mentor_name">Rakibul Islam</span> </p>
+                        </div>
+                        <p>Empowering Minds, Igniting Curiosity, and Fueling a Lifelong Journey of Discovery.</p>
+                    </div>
+                    <div class="course_price">
+                        <h5>199$</h5>
+                    </div>
+                    <div class="course_button">
+                        <a href="#">Purchase Course</a>
+                    </div>
+                </div>
+                <div class="course_item">
+                    <div class="course_icon">
+                        <img src="https://ethemestudio.com/demo/larna/images/course/popular-course-img2.jpg" alt="card icon">
+                    </div>
+                    <div class="course_text">
+                        <h2>Design for the web with Abobe Illustrator and photoshop</h2>
+                        <div class="mentor">
+                            <p>By <span class="mentor_name">Shohedul Islam</span> </p>
+                        </div>
+                        <p>Empowering Minds, Igniting Curiosity, and Fueling a Lifelong Journey of Discovery.</p>
+                    </div>
+                    <div class="course_price">
+                        <h5>199$</h5>
+                    </div>
+                    <div class="course_button">
+                        <a href="#">Purchase Course</a>
+                    </div>
+                </div>
+                <div class="course_item">
+                    <div class="course_icon">
+                        <img src="https://ethemestudio.com/demo/larna/images/course/popular-course-img3.jpg" alt="card icon">
+                    </div>
+                     <div class="course_text">
+                        <h2>Design for the web with Abobe Illustrator and photoshop</h2>
+                        <div class="mentor">
+                            <p>By <span class="mentor_name">Abdullah Naser</span> </p>
+                        </div>
+                        <p>Empowering Minds, Igniting Curiosity, and Fueling a Lifelong Journey of Discovery.</p>
+                    </div>
+                    <div class="course_price">
+                        <h5>199$</h5>
+                    </div>
+                    <div class="course_button">
+                        <a href="#">Purchase Course</a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <!-- ----- courses part end ----- -->
 
 <!-- =====footer part start =====  -->
 <footer id="footer">

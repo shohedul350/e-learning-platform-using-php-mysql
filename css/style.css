@@ -317,6 +317,84 @@ img {
 
 }
 
+
+/* ===== courses css part start  */
+.course_head h1 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 600;
+  font-family: var(--poppins);
+  color: #333;
+  margin: 5px 0;
+  
+}
+.course_button{
+  margin-top: 40px;
+  text-align: right;
+}
+.course_cards {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.course_item {
+  width: 350px;
+  padding: 40px 25px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  text-align: left;
+}
+
+.course_icon img {
+  width: 350px;
+}
+
+.course_text h2 {
+  font-size: 18px;
+  font-weight: 600;
+  font-family: var(--poppins);
+  color: #333;
+  margin: 30px 0 10px 0;
+}
+
+.course_text p {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: var(--inter);
+  color: #333;
+  line-height: 20px;
+  margin-bottom: 20px;
+}
+.mentor_name{
+  color: red;
+  font-size: 1.2rem;
+}
+.course_price{
+  text-align: right;
+  font-size: 1.5rem;
+  color: #00A99D;
+  
+}
+.course_button a {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: var(--poppins);
+  color: var(--brand_color);
+  transition: all linear .3s;
+}
+
+.course_button a:hover {
+  color: var(--secondary_color);
+}
+
+.footer {
+  padding: 50px 0;
+
+}
+/* ===== courses css part end  */
+
+
 /* ===== footer css part start  */
 #footer {
   padding-top: 100px;
