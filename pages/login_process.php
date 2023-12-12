@@ -1,24 +1,34 @@
 <?php
-
-    include("../database/db_connection.php");
-    session_start();
-    echo "hello";
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        header("location: ../pages/dashboard.php");
-        // $username = mysqli_real_escape_string($db, $_POST['username']);
-        // $password = mysqli_real_escape_string($db, $_POST['password']);
-        // $sql = "SELECT id FROM users WHERE username = '$username' and password = '$password'";
-        // $result = mysqli_query($db, $sql);
-        // $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-
-        // $count = mysqli_num_rows($result);
-        // echo "ok";
-        // if ($count == 0) {
-        //     $_SESSION['login_user'] = $username;
-        //     header("location: dashboard.php");
-        // } else {
-        //     $error = "Your Login Name or Password is invalid";
-        //     echo $error;
-        // }
+include("../database/db_connection.php");
+session_start();
+$email = "";
+$email    = "";
+$errors = array(); 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = mysqli_real_escape_string($conn , $_POST['email']);
+    $password = mysqli_real_escape_string($conn , $_POST['password']);
+    if (empty($email)) {
+        array_push($errors, "Username is required");
     }
+    if (empty($password)) {
+        array_push($errors, "Password is required");
+    }
+    if (count($errors) == 0) {
+          $query = "SELECT * FROM users WHERE email='$email' AND password='$password'";
+        $results = mysqli_query($conn, $query);
+        if (mysqli_num_rows($results) == 1) {
+        $row = mysqli_fetch_assoc($results);
+            $_SESSION['name'] = $row['name'];
+            $_SESSION['email'] = $row['email'];
+            $_SESSION['success'] = "You are now logged in";
+            $_SESSION['role'] = $row['role'];
+            if ($row['role'] === 'user') {
+                header('location: ../pages/user_dashboard.php');
+            } elseif ($row['role'] === 'admin') {
+                header('location: ../pages/admin/index.php');
+            }
+        }
+        echo "Error:". $sql . "<br>". $conn->error;
+    }
+}
 ?>

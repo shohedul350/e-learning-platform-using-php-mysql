@@ -1,0 +1,236 @@
+
+/* ===== fonts link css part start  */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* ----- fonts link css part end ----- */
+/* ===== variables css part start  */
+:root {
+  --poppins: 'Poppins', sans-serif;
+  --inter: 'Inter', sans-serif;
+  --brand_color: #573b8a;
+  --secondary_color: #ff4d4d
+}
+
+/* ----- variables css part end ----- */
+/* ===== common css part start  */
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+/* ----- common css part end ----- */
+h1 {
+  color: #333;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #4caf50;
+  color: #fff;
+}
+/* ===== main menu link css part start  */
+#main_menu {
+  width: 100%;
+  /* position: absolute; */
+}
+
+.main_menu {
+  height: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo_part a h2 {
+  font-size: 25px;
+  font-weight: 700;
+  font-family: var(--poppins);
+  color: var(--brand_color);
+}
+
+.nav_item_ ul {
+  display: flex;
+  gap: 22px;
+}
+
+.nav_item_ ul li a {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: var(--poppins);
+  color: #000;
+  position: relative;
+}
+
+.nav_item_ ul li a::after {
+  content: '';
+  width: 0%;
+  height: 2px;
+  background: var(--brand_color);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transition: all linear .3s;
+}
+
+.nav_item_ ul li a:hover::after {
+  width: 100%;
+}
+
+.login_part ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+}
+
+.login_part ul li a {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: var(--poppins);
+  color: #000;
+}
+
+.login_part ul .signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 50px;
+  border-radius: 40px;
+  color: #fff;
+  background: var(--brand_color);
+}
+
+/* ----- main menu css part end ----- */
+/* ===== courses css part start  */
+.course_head h1 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 600;
+  font-family: var(--poppins);
+  color: #333;
+  margin: 5px 0;
+  margin-top: 20px;
+
+}
+
+.course_button {
+  margin-top: 40px;
+  text-align: right;
+}
+
+.course_cards {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.course_item {
+  width: 350px;
+  padding: 40px 25px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  text-align: left;
+}
+
+.course_icon img {
+  width: 350px;
+}
+
+.course_text h2 {
+  font-size: 18px;
+  font-weight: 600;
+  font-family: var(--poppins);
+  color: #333;
+  margin: 30px 0 10px 0;
+}
+
+.course_text p {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: var(--inter);
+  color: #333;
+  line-height: 20px;
+  margin-bottom: 20px;
+}
+
+.mentor_name {
+  color: red;
+  font-size: 1.2rem;
+}
+
+.course_price {
+  text-align: right;
+  font-size: 1.5rem;
+  color: #00A99D;
+
+}
+
+.course_button a {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: var(--poppins);
+  color: var(--brand_color);
+  transition: all linear .3s;
+  
+}
+
+.course_button a:hover {
+  color: var(--secondary_color);
+}
+
+.footer {
+  padding: 50px 0;
+
+}
+
+/* ===== courses css part end  */

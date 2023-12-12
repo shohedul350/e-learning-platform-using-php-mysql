@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Login Page</title>
     <link rel="stylesheet" type="text/css" href="slide navbar style.css">
@@ -9,7 +8,6 @@
     <link rel="stylesheet" href="../css/style.css">
     <!-- <link rel="stylesheet" href="../css/style.css"> -->
 </head>
-
 <body>
     <!-- ===== main menu part start =====  -->
     <header id="main_menu">
@@ -22,7 +20,7 @@
                 </div>
                 <div class="nav_item_">
                     <ul>
-                        <li><a href="home.html">Home</a></li>
+                        <li><a href="/">Home</a></li>
                         <li><a href="#">About</a></li>
                         <li><a href="#">Course</a></li>
                         <li><a href="#">Pages</a></li>
@@ -40,6 +38,9 @@
             </div>
         </div>
     </header>
+
+
+
     <!-- ----- main menu part end ----- -->
     <!-- ===== login part start =====  -->
     <section id="login">
@@ -47,21 +48,21 @@
             <input type="checkbox" id="chk" aria-hidden="true">
 
             <div class="signup">
-                <form>
-                    <label for="chk" aria-hidden="true">Sign up</label>
-                    <input type="text" name="txt" placeholder="User name" required="">
-                    <input type="email" name="email" placeholder="Email" required="">
-                    <input type="password" name="pswd" placeholder="Password" required="">
-                    <button>Sign up</button>
+                <form method="post" action="../pages/login_process.php">
+                    <label for="chk" aria-hidden="true">Sign In</label>
+                    <input type="email" value="admin@gmail.com" name="email" placeholder="Email" required="">
+                    <input type="password" value="123456" name="password" placeholder="Password" required="">
+                    <button>Sign In</button>
                 </form>
             </div>
 
             <div class="login">
-                <form>
-                    <label for="chk" aria-hidden="true">Login</label>
-                    <input type="email" name="email" placeholder="Email" required="">
-                    <input type="password" name="pswd" placeholder="Password" required="">
-                    <button>Login</button>
+                <form method="post" action="../pages/signup_process.php">
+                    <label for="chk" aria-hidden="true">Sign up</label>
+                    <input type="text" name="name" placeholder="Name" required="" value="emon">
+                    <input type="email" name="email" placeholder="Email" required="" value="emon@gmail.com">
+                    <input type="password" name="password" placeholder="Password" required="" value="12345">
+                    <button>Sign up</button>
                 </form>
             </div>
         </div>
