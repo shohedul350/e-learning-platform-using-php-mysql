@@ -71,3 +71,29 @@ nav a:hover {
 .info-card p {
   color: #666;
 }
+
+.dashboard-header {
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.dashboard-title {
+  font-size: 20px;
+  margin: 0;
+  text-align: center;
+}
+
+.logout-button {
+  background-color: #e74c3c;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+

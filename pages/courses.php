@@ -18,7 +18,7 @@
                 </div>
                 <div class="nav_item_">
                     <ul>
-                        <li><a href="#">Home</a></li>
+                        <li><a href="/elearning">Home</a></li>
                         <li><a href="#">About</a></li>
                         <li><a href="#">Course</a></li>
                         <li><a href="#">Pages</a></li>

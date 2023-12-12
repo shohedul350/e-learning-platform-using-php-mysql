@@ -19,6 +19,7 @@ if (isset($_POST['add_category'])) {
 // Read
 $result = $conn->query("SELECT * FROM categories");
 
+$count =   $conn->query("SELECT COUNT(*) FROM categories");
 // Update not used
 if (isset($_POST['update_category'])) {
     $category_id = $_POST['category_id'];
@@ -50,7 +51,7 @@ if (isset($_GET['delete_category'])) {
 </head>
 <body>
     <!-- header include -->
-    <?php  $pageTitle = "Categories!";
+    <?php  $pageTitle = "";
     include '../header.php';?>
     <!-- sidebar include -->
     <?php include '../sidebar.php';?>
@@ -75,7 +76,7 @@ if (isset($_GET['delete_category'])) {
     <?php
     while ($row = $result->fetch_assoc()) {
         echo "<tr>";
-        echo "<td>" . $row['id'] . "</td>";
+        echo "<td>" . $row['id'] .  "</td>";
         echo "<td>" . $row['name'] . "</td>";
         echo "<td>
                 <a href='index.php?delete_category=" . $row['id'] . "'>Delete</a>

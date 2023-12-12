@@ -42,6 +42,8 @@ $result = $conn->query($sql);
     <div class="content">
 
     <h1>Course Management</h1>
+    <a href="create.php">Create Course</a>
+
 
 <table>
     <tr>
