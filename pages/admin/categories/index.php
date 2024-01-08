@@ -51,8 +51,8 @@ if (isset($_GET["edit_category"])) {
 
 if (isset($_POST["Update"])) {
     $errors = array();
-    $id = $_POST['id'];
-    $name = $_POST['name'];
+    echo $id = $_POST['id'];
+    echo $name = $_POST['category_name'];
 
     if (empty($name)) {
         $errors['name'] = "Name is required";
@@ -67,7 +67,13 @@ if (isset($_POST["Update"])) {
 
 
 // Read
-$result = $conn->query("SELECT * FROM categories");
+if(isset($_GET['src'])){
+    $src = $_GET['src'];
+    $result = $conn->query("SELECT * FROM categories WHERE `name` LIKE '%$src%'");
+}
+else{
+    $result = $conn->query("SELECT * FROM categories");
+}
 
 $count =   $conn->query("SELECT COUNT(*) FROM categories");
 
@@ -98,6 +104,12 @@ $count =   $conn->query("SELECT COUNT(*) FROM categories");
     <label for="category_name">Category Name:</label>
     <input type="text" name="category_name" required  value="<?php  echo $name ?>" >
     <button type="submit" name="<?php echo $btnTitle ?>"> <?php echo $btnTitle ?></button>
+</form>
+
+<!-- search section -->
+<form action="" method="get">
+    <input type="text" name="src" placeholder="Search....">
+    <button type="submit">Search</button>
 </form>
 
 <!-- Display Categories -->

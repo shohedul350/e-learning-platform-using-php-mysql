@@ -5,7 +5,7 @@ $email = "";
 $email    = "";
 $errors = array(); 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = mysqli_real_escape_string($conn , $_POST['email']);
+    echo $email = mysqli_real_escape_string($conn , $_POST['email']);
     $password = mysqli_real_escape_string($conn , $_POST['password']);
     if (empty($email)) {
         array_push($errors, "Username is required");
@@ -18,6 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $results = mysqli_query($conn, $query);
         if (mysqli_num_rows($results) == 1) {
         $row = mysqli_fetch_assoc($results);
+            $_SESSION['id'] = $row['id'];
             $_SESSION['name'] = $row['name'];
             $_SESSION['email'] = $row['email'];
             $_SESSION['success'] = "You are now logged in";
