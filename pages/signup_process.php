@@ -5,8 +5,6 @@ $name= "";
 $email= "";
 $password= "";
 $errors = array(); 
-// header('location: ../pages/dashboard.php');
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = mysqli_real_escape_string($conn , $_POST['name']);
     $email = mysqli_real_escape_string($conn , $_POST['email']);
@@ -30,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $result = $conn->query($sql);
   if ($result == TRUE) {
     echo "New record created successfully.";
-    header('location: ../pages/user_dashboard.php');
+    header('location: ../pages/user/index.php');
   }else{
     echo "Error:". $sql . "<br>". $conn->error;
   }

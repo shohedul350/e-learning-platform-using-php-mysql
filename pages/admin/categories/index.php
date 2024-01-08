@@ -9,6 +9,9 @@ if ($conn->connect_error) {
 
 // CRUD Operations Start
 
+$name = null;
+$btnTitle = 'Insert';
+
 // Create
 if (isset($_POST['add_category'])) {
     $category_name = $_POST['category_name'];
@@ -16,17 +19,9 @@ if (isset($_POST['add_category'])) {
     $conn->query($sql);
 }
 
-// Read
-$result = $conn->query("SELECT * FROM categories");
 
-$count =   $conn->query("SELECT COUNT(*) FROM categories");
-// Update not used
-if (isset($_POST['update_category'])) {
-    $category_id = $_POST['category_id'];
-    $new_name = $_POST['new_name'];
-    $sql = "UPDATE categories SET name='$new_name' WHERE id=$category_id";
-    $conn->query($sql);
-}
+
+
 
 // Delete
 if (isset($_GET['delete_category'])) {
@@ -34,11 +29,49 @@ if (isset($_GET['delete_category'])) {
     $sql = "DELETE FROM categories WHERE id=$delete_id";
     $conn->query($sql);
     if ($conn->query($sql) === TRUE) {
-        header("Location: /pages"); 
+        header("Location: /elearning/pages/admin/categories/index.php"); 
     } else {
         echo "Error deleting record: " . $conn->error;
     }
 }
+
+
+
+if (isset($_GET["edit_category"])) {
+    $eid = $_GET['edit_category'];
+    $sql = $conn->query("SELECT * FROM `categories` WHERE `id` = '$eid'");
+    if ($sql->num_rows > 0) {
+        while ($result = mysqli_fetch_assoc($sql)) {
+            $id = $result['id'];
+            $name = $result['name'];
+            $btnTitle = "Update";
+        }
+    }
+}
+
+if (isset($_POST["Update"])) {
+    $errors = array();
+    $id = $_POST['id'];
+    $name = $_POST['name'];
+
+    if (empty($name)) {
+        $errors['name'] = "Name is required";
+    }
+    $sql = $conn->query("UPDATE `categories` SET `name` = '$name' WHERE `id` = '$id'");
+    if ($sql === TRUE) {
+        header("Location: /elearning/pages/admin/categories/index.php"); 
+    } else {
+        echo "Error updating record: " . $conn->error;
+    }
+}
+
+
+// Read
+$result = $conn->query("SELECT * FROM categories");
+
+$count =   $conn->query("SELECT COUNT(*) FROM categories");
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,9 +94,10 @@ if (isset($_GET['delete_category'])) {
 
 <!-- Add Category Form -->
 <form method="POST" action="">
+<input type="text" name="id" value="<?php  echo $id ?>" hidden>
     <label for="category_name">Category Name:</label>
-    <input type="text" name="category_name" required>
-    <button type="submit" name="add_category">Add Category</button>
+    <input type="text" name="category_name" required  value="<?php  echo $name ?>" >
+    <button type="submit" name="<?php echo $btnTitle ?>"> <?php echo $btnTitle ?></button>
 </form>
 
 <!-- Display Categories -->
@@ -79,7 +113,14 @@ if (isset($_GET['delete_category'])) {
         echo "<td>" . $row['id'] .  "</td>";
         echo "<td>" . $row['name'] . "</td>";
         echo "<td>
-                <a href='index.php?delete_category=" . $row['id'] . "'>Delete</a>
+            <span>
+            <a href='index.php?delete_category=" . $row['id'] . "' 
+            style='color: red; text-decoration: none; margin-right: 10px;'>
+            Delete</a>
+
+            <a href='index.php?edit_category=" . $row['id'] . "' 
+            style='color: red; text-decoration: none; margin-right: 10px;'>
+            Edit</a>
             </td>";
         echo "</tr>";
     }

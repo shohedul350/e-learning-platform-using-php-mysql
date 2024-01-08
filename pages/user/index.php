@@ -30,30 +30,20 @@ $courseCount = mysqli_fetch_assoc($courseResult)['courseCount'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>User Dashboard</title>
     <link rel="stylesheet" type="text/css" href="../../css/adminDashboardStyle.css">
 </head>
 <body>
-    <?php  $pageTitle = "Welcome to Admin Panel!";
+    <?php  $pageTitle = "Welcome to User Panel!";
     include './header.php';?>
     <!-- sidebar include -->
     <?php include './sidebar.php';?>
     <div class="content" style="display:flex; justify-content:center">
     <div class="info-card">
-            <h3>Total Users</h3>
+            <h3>Total Join Course</h3>
             <p>  <?php echo $userCount; ?></p>
         </div>
 
-    <div class="info-card">
-            <h3>Total Courses</h3>
-            <p>  <?php echo $courseCount; ?></p>
-        </div>
-
-        <div class="info-card">
-            <h3>Total Categories</h3>
-            <p>  <?php echo $categoryCount; ?></p>
-        </div>
-    
     </div>
     </body>
 </html>
