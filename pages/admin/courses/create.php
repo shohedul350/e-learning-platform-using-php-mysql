@@ -2,6 +2,7 @@
 <?php
 // Database connection
 include("../../../database/db_connection.php");
+$statusMsg = '';
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -10,18 +11,50 @@ $result = $conn->query("SELECT * FROM categories");
 $instructor = $conn->query("SELECT * FROM users");
 
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if (isset($_POST['add_course'])) {
   // Retrieve form data
   $title = $_POST['title'];
   $description = $_POST['description'];
   $category_id = $_POST['category_id'];
   $instructor_id = $_POST['instructor_id'];
   $release_date = $_POST['releaseDate'];
-  $popular = isset($_POST['popular']) ? 1 : 0;
-  $is_home = isset($_POST['isHome']) ? 1 : 0;
+  $popular = $_POST['popular'] ? 1 : 0;
+  $isHome = $_POST['isHome'] ? 1 : 0;
+  $targetDir = "uploads/"; 
+ 
+
+// if(empty($_FILES["file"]["feature_image"])){ 
+
+
+ //    }
+    $fileName = basename($_FILES["feature_image"]["name"]); 
+    $targetFilePath = $targetDir . $fileName; 
+    $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION); 
+        // Allow certain file formats 
+        // $allowTypes = array('jpg','png','jpeg','gif'); 
+        // if(in_array($fileType, $allowTypes)){ 
+
+            // Upload file to server 
+            if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)){ 
+            $sql = "INSERT INTO courses (title, description, popular, isHome, category_id, instructor_id, user_id, release_date, feature_image)
+            VALUES ('$title', '$description', $popular, $isHome ,$category_id, $instructor_id, 1, null)";
+             // Execute the query
+                if ($conn->query($sql) === TRUE) {
+                echo "New record created successfully";
+                } else {
+                    echo '<div style="color: red;">Error: ' . $conn->error . '</div>';
+                }
+            }else{ 
+                $statusMsg = "Sorry, there was an error uploading your file."; 
+        } 
+        // }
+        
+        // else{ 
+        //     $statusMsg = 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.'; 
+        // } 
+
 
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,15 +75,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php include '../sidebar.php';?>
     <div class="content">
 
+    <?php 
+         echo '<div style="color: red;">Error: ' . $statusMsg . '</div>';
+     ?>
     <h1>Create Course</h1>
 
-    <form id="courseForm" action="#" method="post">
+    <form method="POST" action="" enctype="multipart/form-data">
         <label for="title">Title:</label>
-        <input type="text" id="title" name="title" required>
+        <input type="text" id="title" name="title" required value="test">
         <span id="titleError" class="error"></span>
 
         <label for="description">Description:</label>
-        <textarea id="description" name="description" required></textarea>
+        <textarea id="description" name="description" required  value="test" ></textarea>
         <span id="descriptionError" class="error"></span>
 
         <label for="category">Category:</label>
@@ -96,7 +132,11 @@ if ($instructor->num_rows > 0) {
         <label for="isHome">Featured on Homepage:</label>
         <input type="checkbox" id="isHome" name="isHome">
 
-        <input type="submit" value="Submit">
+        <label for="image">Feature Image:</label>
+     <input type="file" name="feature_image" accept="image/*" required>
+
+
+        <input type="submit" value="Submit" name="add_course">
     </form>
 
 </div>

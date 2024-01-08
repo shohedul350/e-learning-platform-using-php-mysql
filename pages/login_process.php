@@ -23,12 +23,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['success'] = "You are now logged in";
             $_SESSION['role'] = $row['role'];
             if ($row['role'] === 'user') {
-                header('location: ../pages/user_dashboard.php');
+                header('location: ../pages/user/index.php');
             } elseif ($row['role'] === 'admin') {
                 header('location: ../pages/admin/index.php');
             }
         }
-        echo "Error:". $sql . "<br>". $conn->error;
+        echo "Error Login:". $sql . "<br>". $conn->error;
     }
 }
 ?>
