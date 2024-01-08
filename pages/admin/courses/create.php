@@ -10,50 +10,36 @@ if ($conn->connect_error) {
 $result = $conn->query("SELECT * FROM categories");
 $instructor = $conn->query("SELECT * FROM users");
 
-
 if (isset($_POST['add_course'])) {
-  // Retrieve form data
+// Retrieve form data
   $title = $_POST['title'];
   $description = $_POST['description'];
+  $popular = $_POST['popular'] ? 1 : 0;
+  $isHome = $_POST['isHome'] ? 1 : 0;
   $category_id = $_POST['category_id'];
   $instructor_id = $_POST['instructor_id'];
   $release_date = $_POST['releaseDate'];
-  $popular = $_POST['popular'] ? 1 : 0;
-  $isHome = $_POST['isHome'] ? 1 : 0;
+  $price = $_POST['price'];
   $targetDir = "uploads/"; 
- 
+  
+  echo $title;
 
-// if(empty($_FILES["file"]["feature_image"])){ 
-
-
- //    }
-    $fileName = basename($_FILES["feature_image"]["name"]); 
-    $targetFilePath = $targetDir . $fileName; 
-    $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION); 
-        // Allow certain file formats 
-        // $allowTypes = array('jpg','png','jpeg','gif'); 
-        // if(in_array($fileType, $allowTypes)){ 
-
-            // Upload file to server 
-            if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)){ 
-            $sql = "INSERT INTO courses (title, description, popular, isHome, category_id, instructor_id, user_id, release_date, feature_image)
-            VALUES ('$title', '$description', $popular, $isHome ,$category_id, $instructor_id, 1, null)";
-             // Execute the query
-                if ($conn->query($sql) === TRUE) {
-                echo "New record created successfully";
-                } else {
-                    echo '<div style="color: red;">Error: ' . $conn->error . '</div>';
-                }
-            }else{ 
-                $statusMsg = "Sorry, there was an error uploading your file."; 
-        } 
-        // }
-        
-        // else{ 
-        //     $statusMsg = 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.'; 
-        // } 
-
-
+    // $fileName = basename($_FILES["feature_image"]["name"]); 
+    // $targetFilePath = $targetDir . $fileName; 
+    // $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION); 
+    //         // Upload file to server 
+    //         if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)){ 
+    //         $sql = "INSERT INTO courses (title, description, popular, isHome, category_id, instructor_id, user_id, release_date, feature_image, price)
+    //         VALUES ('$title', '$description', $popular, $isHome ,$category_id, $instructor_id, 1, 2023-01-01,  null, )";
+    //          // Execute the query
+    //             if ($conn->query($sql) === TRUE) {
+    //             echo "New record created successfully";
+    //             } else {
+    //                 echo '<div style="color: red;">Error: ' . $conn->error . '</div>';
+    //             }
+    //         }else{ 
+    //             $statusMsg = "Sorry, there was an error uploading your file."; 
+    //     } 
 }
 ?>
 <!DOCTYPE html>
@@ -134,6 +120,10 @@ if ($instructor->num_rows > 0) {
 
         <label for="image">Feature Image:</label>
      <input type="file" name="feature_image" accept="image/*" required>
+
+
+     <label for="price">Price:</label>
+     <input type="text" name="price"  required>
 
 
         <input type="submit" value="Submit" name="add_course">
