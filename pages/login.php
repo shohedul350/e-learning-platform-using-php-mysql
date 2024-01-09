@@ -20,12 +20,11 @@
                 </div>
                 <div class="nav_item_">
                     <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Course</a></li>
-                        <li><a href="#">Pages</a></li>
-                        <li><a href="#">News</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="../../elearning">Home</a></li>
+                        <li><a href="../../elearning/pages/about.php">About</a></li>
+                        <li><a href="../../elearning/pages/courses.php">Course</a></li>
+                        <li><a href="../../elearning/pages/newsBlog.php">News</a></li>
+                        <li><a href="../../elearning/pages/contact.php">Contact</a></li>
                     </ul>
                 </div>
                 <div class="login_part">
