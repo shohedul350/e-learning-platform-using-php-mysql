@@ -9,7 +9,15 @@ if ($conn->connect_error) {
 
 // CRUD Operations Start
 // Read
-$result = $conn->query("SELECT * FROM users");
+// $result = $conn->query("SELECT * FROM users");
+// Read
+if(isset($_GET['src'])){
+    $src = $_GET['src'];
+    $result = $conn->query("SELECT * FROM users WHERE `name` LIKE '%$src%'");
+}
+else{
+    $result = $conn->query("SELECT * FROM users");
+}
 
 ?>
 <!DOCTYPE html>
@@ -31,8 +39,13 @@ $result = $conn->query("SELECT * FROM users");
 
     <h2>Users</h2>
 
+<!-- search section -->
+<form action="" method="get">
+    <input type="text" name="src" placeholder="Search....">
+    <button type="submit">Search</button>
+</form>
 
-<!-- Display Categories -->
+<!-- Display  -->
 <table>
     <tr>
         <th>ID</th>

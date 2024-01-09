@@ -76,9 +76,9 @@ if (isset($_POST['add_course'])) {
     <?php include '../sidebar.php'; ?>
     <div class="content">
 
-        <?php
+        <!-- <?php
         echo '<div style="color: red;">Error: ' . $statusMsg . '</div>';
-        ?>
+        ?> -->
         <h1>Create Course</h1>
 
         <form method="POST" action="" enctype="multipart/form-data">

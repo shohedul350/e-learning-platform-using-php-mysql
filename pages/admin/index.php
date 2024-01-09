@@ -21,6 +21,12 @@ $courseCountQuery = "SELECT COUNT(*) as courseCount FROM courses";
 $courseResult = mysqli_query($conn, $courseCountQuery);
 $courseCount = mysqli_fetch_assoc($courseResult)['courseCount'];
 
+
+// Fetch course count
+$joinCountQuery = "SELECT COUNT(*) as joinCount FROM joincourses";
+$joinResult = mysqli_query($conn, $joinCountQuery);
+$joinCount = mysqli_fetch_assoc($joinResult)['joinCount'];
+
 // Fetch the result
 // $row = mysqli_fetch_assoc($result);
 ?>
@@ -53,7 +59,13 @@ $courseCount = mysqli_fetch_assoc($courseResult)['courseCount'];
             <h3>Total Categories</h3>
             <p>  <?php echo $categoryCount; ?></p>
         </div>
-    
+
+
+        <div class="info-card">
+            <h3>Total Join</h3>
+            <p>  <?php echo $joinCount; ?></p>
+        </div>
+        
     </div>
     </body>
 </html>

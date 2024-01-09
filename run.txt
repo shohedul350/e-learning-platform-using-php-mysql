@@ -49,3 +49,12 @@ INSERT INTO courses (title, description, popular, isHome, category_id, instructo
 ('Introduction to Python', 'Learn the basics of Python programming language.', true, true, 1, 1, 2, '2023-01-01', null),
 ('Web Design Fundamentals', 'Explore the principles of web design.', false, false, 2, 2, 1, '2023-02-15', null),
 ('Data Analysis with Python', 'Analyze data using Python and pandas library.', true, false, 3, 3, 3, '2023-03-10', null);
+
+CREATE TABLE joincourses (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    course_id INT,
+    FOREIGN KEY (course_id) REFERENCES courses(id),
+    user_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    join_date DATE DEFAULT CURRENT_DATE
+);

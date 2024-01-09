@@ -61,23 +61,43 @@ if ($result->num_rows > 0) {
             height: 100px;
             margin-bottom: 10px;
         }
+        h2 {
+  color: #333;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 8px 15px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
     </style>
 </head>
 <body>
-    <?php  $pageTitle = "Welcome to User Panel!";
+    <?php  $pageTitle = "Welcome to Admin Panel!";
     include '../header.php';?>
     <!-- sidebar include -->
     <?php include '../sidebar.php';?>
   
 
     <div class="container">
-       <?php
-        
-
-        
-
-        ?>
-
+   
       <h1>Welcome, <?php echo $userData['name']; ?>!</h1>
         <p>Email: <?php echo $userData['email']; ?></p>
 
@@ -92,7 +112,7 @@ if ($result->num_rows > 0) {
         <h2>Update password</h2>
         <form method="post" action="">
             <input type="text" name="id" value="<?php echo $userData['id']; ?>" hidden>
-        <input type="password" name="password" placeholder="New Password">
+            <input type="password" name="password" placeholder="New Password">
             <input type="submit" name="updatePass" value="Update Password">
         </form> 
     </div>
