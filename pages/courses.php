@@ -1,3 +1,58 @@
+
+<?php
+// Database connection
+include("../database/db_connection.php");
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// CRUD Operations Start
+
+
+$sql = "SELECT 
+   courses.id ,
+    courses.title,
+    courses.feature_image,
+    courses.description,
+    courses.popular,
+    courses.isHome,
+    courses.price,
+    categories.id AS category_id,
+    categories.name AS category_name,
+    users.id AS instructor_id,
+    users.name AS instructor_name,
+    courses.release_date
+    FROM courses LEFT JOIN categories ON courses.category_id = categories.id
+LEFT JOIN users ON courses.instructor_id = users.id";
+
+
+$sql_search = "SELECT 
+    courses.id ,
+    courses.title,
+    courses.feature_image,
+    courses.description,
+    courses.popular,
+    courses.isHome,
+    courses.price,
+    categories.id AS category_id,
+    categories.name AS category_name,
+    users.id AS instructor_id,
+    users.name AS instructor_name,
+    courses.release_date
+    FROM courses LEFT JOIN categories ON courses.category_id = categories.id
+LEFT JOIN users ON courses.instructor_id = users.id WHERE courses.title LIKE '%$src%'";
+if(isset($_GET['src'])){
+    $src = $_GET['src'];
+    $result = $conn->query($sql_search);
+}
+else{
+    $result = $conn->query($sql);
+}
+// $result = $conn->query($sql);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,13 +67,13 @@
         <div class="container">
             <div class="main_menu">
                 <div class="logo_part">
-                    <a href="#index.php">
+                <a href="../index.php">
                         <h2>E-learning</h2>
                     </a>
                 </div>
                 <div class="nav_item_">
                     <ul>
-                        <li><a href="/elearning">Home</a></li>
+                        <li><a href="../index.php">Home</a></li>
                         <li><a href="../../elearning/pages/about.php">About</a></li>
                         <li><a href="../../elearning/pages/courses.php">Course</a></li>
                         <li><a href="../../elearning/pages/newsBlog.php">News</a></li>
@@ -45,116 +100,37 @@
             </div>
 
             <div class="course_cards">
-                <div class="course_item">
-                    <div class="course_icon">
-                        <img src="https://ethemestudio.com/demo/larna/images/course/popular-course-img1.jpg" alt="card icon">
-                    </div>
-                     <div class="course_text">
-                        <h2>Design for the web with Abobe Illustrator and photoshop</h2>
-                        <div class="mentor">
-                            <p>By <span class="mentor_name">Rakibul Islam</span> </p>
-                        </div>
-                        <p>Empowering Minds, Igniting Curiosity, and Fueling a Lifelong Journey of Discovery.</p>
-                    </div>
-                    <div class="course_price">
-                        <h5>199$</h5>
-                    </div>
-                    <div class="course_button">
-                        <a href="#">Purchase Course</a>
-                    </div>
-                </div>
-                <div class="course_item">
-                    <div class="course_icon">
-                        <img src="https://ethemestudio.com/demo/larna/images/course/popular-course-img2.jpg" alt="card icon">
-                    </div>
-                    <div class="course_text">
-                        <h2>Design for the web with Abobe Illustrator and photoshop</h2>
-                        <div class="mentor">
-                            <p>By <span class="mentor_name">Shohedul Islam</span> </p>
-                        </div>
-                        <p>Empowering Minds, Igniting Curiosity, and Fueling a Lifelong Journey of Discovery.</p>
-                    </div>
-                    <div class="course_price">
-                        <h5>199$</h5>
-                    </div>
-                    <div class="course_button">
-                        <a href="#">Purchase Course</a>
-                    </div>
-                </div>
-                <div class="course_item">
-                    <div class="course_icon">
-                        <img src="https://ethemestudio.com/demo/larna/images/course/popular-course-img3.jpg" alt="card icon">
-                    </div>
-                     <div class="course_text">
-                        <h2>Design for the web with Abobe Illustrator and photoshop</h2>
-                        <div class="mentor">
-                            <p>By <span class="mentor_name">Abdullah Naser</span> </p>
-                        </div>
-                        <p>Empowering Minds, Igniting Curiosity, and Fueling a Lifelong Journey of Discovery.</p>
-                    </div>
-                    <div class="course_price">
-                        <h5>199$</h5>
-                    </div>
-                    <div class="course_button">
-                        <a href="#">Purchase Course</a>
-                    </div>
-                </div>
-                
 
-                <div class="course_item">
-                    <div class="course_icon">
-                        <img src="https://ethemestudio.com/demo/larna/images/course/popular-course-img1.jpg" alt="card icon">
-                    </div>
-                     <div class="course_text">
-                        <h2>Design for the web with Abobe Illustrator and photoshop</h2>
-                        <div class="mentor">
-                            <p>By <span class="mentor_name">Rakibul Islam</span> </p>
-                        </div>
-                        <p>Empowering Minds, Igniting Curiosity, and Fueling a Lifelong Journey of Discovery.</p>
-                    </div>
-                    <div class="course_price">
-                        <h5>199$</h5>
-                    </div>
-                    <div class="course_button">
-                        <a href="#">Purchase Course</a>
-                    </div>
+
+            <?php
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        echo "
+            <div class='course_item'>
+                <div class='course_icon'>
+                <img src='../uploads/" . $row['feature_image'] . "' alt='card icon'>
                 </div>
-                <div class="course_item">
-                    <div class="course_icon">
-                        <img src="https://ethemestudio.com/demo/larna/images/course/popular-course-img2.jpg" alt="card icon">
+                <div class='course_text'>
+                    <h2>" . $row['course_title'] . "</h2>
+                    <div class='mentor'>
+                        <p>By <span class='mentor_name'>" . $row['instructor_name'] . "</span></p>
                     </div>
-                    <div class="course_text">
-                        <h2>Design for the web with Abobe Illustrator and photoshop</h2>
-                        <div class="mentor">
-                            <p>By <span class="mentor_name">Shohedul Islam</span> </p>
-                        </div>
-                        <p>Empowering Minds, Igniting Curiosity, and Fueling a Lifelong Journey of Discovery.</p>
-                    </div>
-                    <div class="course_price">
-                        <h5>199$</h5>
-                    </div>
-                    <div class="course_button">
-                        <a href="#">Purchase Course</a>
-                    </div>
+                    <p>" . $row['description'] . "</p>
                 </div>
-                <div class="course_item">
-                    <div class="course_icon">
-                        <img src="https://ethemestudio.com/demo/larna/images/course/popular-course-img3.jpg" alt="card icon">
-                    </div>
-                     <div class="course_text">
-                        <h2>Design for the web with Abobe Illustrator and photoshop</h2>
-                        <div class="mentor">
-                            <p>By <span class="mentor_name">Abdullah Naser</span> </p>
-                        </div>
-                        <p>Empowering Minds, Igniting Curiosity, and Fueling a Lifelong Journey of Discovery.</p>
-                    </div>
-                    <div class="course_price">
-                        <h5>199$</h5>
-                    </div>
-                    <div class="course_button">
-                        <a href="#">Purchase Course</a>
-                    </div>
+                <div class='course_price'>
+                    <h5>" . $row['price'] . "</h5>
                 </div>
+                <div class='course_button'>
+                    <a href='#'>Join Course</a>
+                </div>
+            </div>
+        ";
+    }
+} else {
+    echo "<p>No courses found</p>";
+}
+?>
+
             </div>
         </div>
     </section>

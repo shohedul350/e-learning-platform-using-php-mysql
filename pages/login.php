@@ -75,7 +75,7 @@
             <div class="footer_row">
                 <div class="footer_column">
                     <div class="logo_part">
-                        <a href="#">
+                    <a href="./index.php">
                             <h2>E-learning</h2>
                         </a>
                     </div>

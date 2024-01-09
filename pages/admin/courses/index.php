@@ -26,19 +26,19 @@ LEFT JOIN users ON courses.instructor_id = users.id";
 
 
 $sql_search = "SELECT 
- courses.id ,
- courses.title,
- courses.description,
- courses.popular,
- courses.isHome,
- courses.price,
- categories.id AS category_id,
- categories.name AS category_name,
- users.id AS instructor_id,
- users.name AS instructor_name,
- courses.release_date
- FROM courses WHERE  `name` LIKE '%$src%'  LEFT JOIN categories ON courses.category_id = categories.id
-LEFT JOIN users ON courses.instructor_id = users.id";
+    courses.id ,
+    courses.title,
+    courses.description,
+    courses.popular,
+    courses.isHome,
+    courses.price,
+    categories.id AS category_id,
+    categories.name AS category_name,
+    users.id AS instructor_id,
+    users.name AS instructor_name,
+    courses.release_date
+    FROM courses LEFT JOIN categories ON courses.category_id = categories.id
+LEFT JOIN users ON courses.instructor_id = users.id WHERE courses.title LIKE '%$src%'";
 
 
 // Delete

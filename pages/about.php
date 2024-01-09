@@ -35,7 +35,7 @@
         <div class="container">
             <div class="main_menu">
                 <div class="logo_part">
-                    <a href="/index.php">
+                <a href="../index.php">
                         <h2>E-learning</h2>
                     </a>
                 </div>
