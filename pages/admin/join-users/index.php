@@ -9,7 +9,18 @@ if ($conn->connect_error) {
 
 // CRUD Operations Start
 // Read
-$result = $conn->query("SELECT * FROM users");
+$result = $conn->query("SELECT 
+    joincourses.id AS id,
+    joincourses.join_date,
+    courses.id AS course_id,
+    courses.title AS courses_title,
+    users.id AS user_id,
+    users.name AS user_name,
+    users.email AS user_email
+FROM
+    joincourses
+    LEFT JOIN courses ON joincourses.course_id = courses.id
+    LEFT JOIN users ON joincourses.user_id = users.id");
 
 ?>
 <!DOCTYPE html>
@@ -32,6 +43,11 @@ $result = $conn->query("SELECT * FROM users");
     <h2>Users Join List</h2>
 
 
+<!-- search section -->
+<form action="" method="get">
+    <input type="text" name="src" placeholder="Search....">
+    <button type="submit">Search</button>
+</form>
 <!-- Display -->
 <table>
     <tr>
@@ -41,15 +57,15 @@ $result = $conn->query("SELECT * FROM users");
         <th>join Date</th>
         <th>Course Name</th>
     </tr>
+
     <?php
     while ($row = $result->fetch_assoc()) {
         echo "<tr>";
         echo "<td>" . $row['id'] . "</td>";
-        echo "<td>" . $row['name'] . "</td>";
-        echo "<td>" . $row['email'] . "</td>";
-        echo "<td>"  . $row['email'] .  "</td>";
-        echo "<td>" . $row['email'] .  "</td>";
-
+        echo "<td>" . $row['user_name'] . "</td>";
+        echo "<td>" . $row['user_email'] . "</td>";
+        echo "<td>" . $row['join_date'] . "</td>";
+        echo "<td>" . $row['courses_title'] . "</td>";
     }
     ?>
 </table>
